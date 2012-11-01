@@ -57,7 +57,7 @@ ln -s %{_bindir}/consolehelper ${RPM_BUILD_ROOT}%{_bindir}/%{name}
 %{_datadir}/polkit-1/*
 %{_mandir}/man1/*
 %{_iconsdir}/*
-%{_libdir}/*
+%{_libdir}/grubcfg-proxy
 %{_sysconfdir}/*
 
 %changelog
