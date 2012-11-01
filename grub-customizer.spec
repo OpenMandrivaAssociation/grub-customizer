@@ -59,6 +59,7 @@ ln -s %{_bindir}/consolehelper ${RPM_BUILD_ROOT}%{_bindir}/%{name}
 %{_iconsdir}/*
 %{_libdir}/*
 %{_sysconfdir}/*
+%exclude %{_libdir}/debug/
 
 %changelog
 * Sat May 12 2012 Vladimir Testov <Vladimir.Testov> 2.5.5
