@@ -1,7 +1,7 @@
 # Basic Information
 Name: grub-customizer
 Version: 2.5.6
-Release: 1
+Release: 2
 Summary: Graphical interface to configure the grub2/burg settings
 Group: System/Configuration/Boot and Init
 License: GPLv3
@@ -52,7 +52,6 @@ ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/%{name}
 %{_iconsdir}/*
 %{_libdir}/*
 %{_sysconfdir}/*
-%exclude %{_libdir}/debug/
 
 %changelog
 * Sat May 12 2012 Vladimir Testov <Vladimir.Testov> 2.5.5
