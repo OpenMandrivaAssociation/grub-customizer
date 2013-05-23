@@ -2,16 +2,10 @@
 Name: grub-customizer
 Version: 2.5.6
 Release: 1
-Summary: Graphical interface to configure the grub2/burg settings.
+Summary: Graphical interface to configure the grub2/burg settings
 Group: System/Configuration/Boot and Init
 License: GPLv3
 URL: https://launchpad.net/grub-customizer
-
-# Packager Information
-Packager: Vladimir Testov <vladimir.testov@rosalab.ru> ROSA 2012
-
-# Build Information
-BuildRoot: %{name}-%{version}
 
 # Source Information
 Source0: %{name}_%{version}.tar.gz
@@ -24,9 +18,9 @@ BuildRequires: cmake gcc-c++ gtkmm2.4-devel gettext openssl-devel grub2
 Requires: grub2
 
 %description
-Grub Customizer is a graphical interface to configure the grub2/burg settings
-with focus on the individual list order - without losing the dynamical
-behavior of grub.
+Grub Customizer is a graphical interface to configure the grub2/burg
+settings with focus on the individual list order - without losing the
+dynamical behavior of grub.
 
 %prep
 #%setup -q -c -n %{name}-%{version}
@@ -38,19 +32,18 @@ behavior of grub.
 %make
 
 %install
-mkdir ${RPM_BUILD_ROOT}/etc/%{name} -p
-cp %{SOURCE1} ${RPM_BUILD_ROOT}/etc/%{name}/grub.cfg
-mkdir ${RPM_BUILD_ROOT}/etc/pam.d -p
-cp %{SOURCE2} ${RPM_BUILD_ROOT}/etc/pam.d/%{name}
+mkdir %{buildroot}/etc/%{name} -p
+cp %{SOURCE1} %{buildroot}/etc/%{name}/grub.cfg
+mkdir %{buildroot}/etc/pam.d -p
+cp %{SOURCE2} %{buildroot}/etc/pam.d/%{name}
 cd build
-make install DESTDIR=${RPM_BUILD_ROOT}
+make install DESTDIR=%{buildroot}
 cd ..
-mkdir ${RPM_BUILD_ROOT}/%{_bindir} -p
-ln -s %{_bindir}/consolehelper ${RPM_BUILD_ROOT}%{_bindir}/%{name}
+mkdir %{buildroot}/%{_bindir} -p
+ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/%{name}
 %find_lang %{name}
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %{_bindir}/*
 %{_sbindir}/*
 %{_datadir}/applications/*.desktop
