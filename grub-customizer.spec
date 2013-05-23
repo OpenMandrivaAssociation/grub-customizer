@@ -52,6 +52,7 @@ ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/%{name}
 %{_iconsdir}/*
 %{_libdir}/*
 %{_sysconfdir}/*
+%exclude /usr/lib/debug/
 
 %changelog
 * Sat May 12 2012 Vladimir Testov <Vladimir.Testov> 2.5.5
