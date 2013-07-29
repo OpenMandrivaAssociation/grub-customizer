@@ -27,6 +27,7 @@ dynamical behavior of grub.
 #%setup -q -c -n %{name}-%{version}
 %setup -q
 %patch0 -p2
+%patch1 -p1
 
 %build
 %cmake
