@@ -1,7 +1,7 @@
 # Basic Information
 Name: grub-customizer
 Version: 3.0.4
-Release: 1
+Release: 2
 Summary: Graphical interface to configure the grub2/burg settings
 Group: System/Configuration/Boot and Init
 License: GPLv3
@@ -12,6 +12,7 @@ Source0: %{name}_%{version}.tar.gz
 Source1: %{name}-grub.cfg
 Source2: %{name}-pamd
 Patch0: %{name}-sbin.patch
+Patch1: grub-customizer-3.0.4-russian_desktopfile.patch
 
 # Dependency Information
 BuildRequires: cmake gcc-c++ gtkmm2.4-devel gettext openssl-devel grub2

@@ -1,0 +1,12 @@
+--- grub-customizer-3.0.4/misc/grub-customizer.desktop	2013-01-20 02:16:31.000000000 +0400
++++ grub-customizer-3.0.4.new/misc/grub-customizer.desktop	2013-07-28 20:10:47.396644000 +0400
+@@ -1,6 +1,9 @@
+ [Desktop Entry]
+ Name=Grub Customizer
++GenericName=Grub Customizer
++GenericName[ru]= Настройка загрузчика
+ Comment=Customize the bootloader (GRUB2 or BURG)
++Comment[ru]=Настройка загрузчика системы (GRUB2 или BURG) 
+ Exec=grub-customizer
+ Terminal=false
+ X-MultipleArgs=false
