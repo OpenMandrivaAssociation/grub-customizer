@@ -1,7 +1,7 @@
 # Basic Information
 Name: grub-customizer
 Version: 3.0.4
-Release: 3
+Release: 4
 Summary: Graphical interface to configure the grub2/burg settings
 Group: System/Configuration/Boot and Init
 License: GPLv3
