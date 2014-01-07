@@ -12,6 +12,7 @@ Patch0:		%{name}-sbin.patch
 Patch1:		grub-customizer-3.0.4-russian_desktopfile.patch
 BuildRequires:	cmake
 BuildRequires:	gtkmm2.4-devel
+BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	gettext
 BuildRequires:	openssl-devel
 BuildRequires:	grub2
