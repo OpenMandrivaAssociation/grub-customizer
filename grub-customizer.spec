@@ -1,22 +1,23 @@
-# Basic Information
-Name: grub-customizer
-Version: 3.0.4
-Release: 2
-Summary: Graphical interface to configure the grub2/burg settings
-Group: System/Configuration/Boot and Init
-License: GPLv3
-URL: https://launchpad.net/grub-customizer
-
-# Source Information
-Source0: %{name}_%{version}.tar.gz
-Source1: %{name}-grub.cfg
-Source2: %{name}-pamd
-Patch0: %{name}-sbin.patch
-Patch1: grub-customizer-3.0.4-russian_desktopfile.patch
-
-# Dependency Information
-BuildRequires: cmake gcc-c++ gtkmm2.4-devel gettext openssl-devel grub2
-Requires: grub2
+Name:		grub-customizer
+Version:	4.0.3
+Release:	1
+Summary:	Graphical interface to configure the grub2/burg settings
+Group:		System/Configuration/Boot and Init
+License:	GPLv3
+URL:		https://launchpad.net/grub-customizer
+Source0:	https://launchpadlibrarian.net/160721885/%{name}_%{version}.tar.gz
+Source1:	%{name}-grub.cfg
+Source2:	%{name}-pamd
+Patch0:		%{name}-sbin.patch
+Patch1:		grub-customizer-3.0.4-russian_desktopfile.patch
+BuildRequires:	cmake
+BuildRequires:	pkgconfig(gtkmm-3.0)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(libarchive)
+BuildRequires:	gettext
+BuildRequires:	openssl-devel
+BuildRequires:	grub2
+Requires:	grub2
 
 %description
 Grub Customizer is a graphical interface to configure the grub2/burg
@@ -55,7 +56,3 @@ ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/%{name}
 %{_libdir}/*
 %{_sysconfdir}/*
 %exclude /usr/lib/debug/
-
-%changelog
-* Sat May 12 2012 Vladimir Testov <Vladimir.Testov> 2.5.5
-- Initial Spec File
