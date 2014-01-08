@@ -11,7 +11,9 @@ Source2:	%{name}-pamd
 Patch0:		%{name}-sbin.patch
 Patch1:		grub-customizer-3.0.4-russian_desktopfile.patch
 BuildRequires:	cmake
-BuildRequires:	gtkmm2.4-devel
+BuildRequires:	pkgconfig(gtkmm-3.0)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	gettext
 BuildRequires:	openssl-devel
 BuildRequires:	grub2
