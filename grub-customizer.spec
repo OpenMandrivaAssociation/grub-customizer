@@ -1,31 +1,45 @@
+Summary:	Graphical interface to configure the grub2/burg settings
 Name:		grub-customizer
 Version:	4.0.6
-Release:	1
-Summary:	Graphical interface to configure the grub2/burg settings
+Release:	2
+License:	GPLv3+
 Group:		System/Configuration/Boot and Init
-License:	GPLv3
-URL:		https://launchpad.net/grub-customizer
+Url:		https://launchpad.net/grub-customizer
 Source0:	https://launchpadlibrarian.net/160721885/%{name}_%{version}.tar.gz
 Source1:	%{name}-grub.cfg
 Source2:	%{name}-pamd
-Patch0:		%{name}-sbin.patch
+Patch0:		grub-customizer-sbin.patch
 Patch1:		grub-customizer-3.0.4-russian_desktopfile.patch
 BuildRequires:	cmake
-BuildRequires:	pkgconfig(gtkmm-3.0)
-BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	gettext
-BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(gtkmm-3.0)
+BuildRequires:	pkgconfig(libarchive)
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	grub2
 Requires:	grub2
+Requires:	usermode-consoleonly
 
 %description
 Grub Customizer is a graphical interface to configure the grub2/burg
 settings with focus on the individual list order - without losing the
 dynamical behavior of grub.
 
+%files -f %{name}.lang
+%{_bindir}/%{name}
+%{_sbindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/polkit-1/actions/*.policy
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_libdir}/grubcfg-proxy
+%{_mandir}/man1/%{name}.1*
+%dir %{_sysconfdir}/%{name}
+%{_sysconfdir}/%{name}/grub.cfg
+%{_sysconfdir}/pam.d/%{name}
+
+#----------------------------------------------------------------------------
+
 %prep
-#%setup -q -c -n %{name}-%{version}
 %setup -q
 %patch0 -p2
 %patch1 -p1
@@ -35,24 +49,15 @@ dynamical behavior of grub.
 %make
 
 %install
+%makeinstall_std -C build
+
+mkdir -p %{buildroot}%{_bindir}
+ln -s consolehelper %{buildroot}%{_bindir}/%{name}
+
 mkdir %{buildroot}/etc/%{name} -p
 cp %{SOURCE1} %{buildroot}/etc/%{name}/grub.cfg
 mkdir %{buildroot}/etc/pam.d -p
 cp %{SOURCE2} %{buildroot}/etc/pam.d/%{name}
-cd build
-make install DESTDIR=%{buildroot}
-cd ..
-mkdir %{buildroot}/%{_bindir} -p
-ln -s %{_bindir}/consolehelper %{buildroot}%{_bindir}/%{name}
+
 %find_lang %{name}
 
-%files -f %{name}.lang
-%{_bindir}/*
-%{_sbindir}/*
-%{_datadir}/applications/*.desktop
-%{_datadir}/polkit-1/*
-%{_mandir}/man1/*
-%{_iconsdir}/*
-%{_libdir}/*
-%{_sysconfdir}/*
-%exclude /usr/lib/debug/
