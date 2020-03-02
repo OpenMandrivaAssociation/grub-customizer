@@ -1,7 +1,7 @@
 Summary:	Graphical interface to configure the grub2/burg settings
 Name:		grub-customizer
-Version:	5.0.6
-Release:	2
+Version:	5.1.0
+Release:	1
 License:	GPLv3+
 Group:		System/Configuration/Boot and Init
 Url:		https://launchpad.net/grub-customizer
@@ -46,13 +46,13 @@ dynamical behavior of grub.
 
 %build
 # hangs when built with clang 3.8
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %cmake
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 mkdir -p %{buildroot}%{_bindir}
 ln -s consolehelper %{buildroot}%{_bindir}/%{name}
