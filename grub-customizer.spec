@@ -30,7 +30,7 @@ dynamical behavior of grub.
 %{_sbindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/polkit-1/actions/*.policy
-%{_iconsdir}/hicolor/*/apps/%{name}.png
+#%{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_libdir}/grubcfg-proxy
 %{_mandir}/man1/%{name}.1*
 %dir %{_sysconfdir}/%{name}
