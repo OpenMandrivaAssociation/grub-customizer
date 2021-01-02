@@ -1,7 +1,7 @@
 Summary:	Graphical interface to configure the grub2/burg settings
 Name:		grub-customizer
 Version:	5.1.0
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		System/Configuration/Boot and Init
 Url:		https://launchpad.net/grub-customizer
