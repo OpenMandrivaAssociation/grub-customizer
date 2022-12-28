@@ -27,7 +27,6 @@ dynamical behavior of grub.
 
 %files -f %{name}.lang
 %{_bindir}/%{name}
-%{_sbindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/polkit-1/actions/*.policy
 %{_iconsdir}/hicolor/*/apps/%{name}.svg
