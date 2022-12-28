@@ -48,8 +48,8 @@ dynamical behavior of grub.
 %install
 %make_install -C build
 
-mkdir -p %{buildroot}%{_bindir}
-ln -s consolehelper %{buildroot}%{_bindir}/%{name}
+#mkdir -p %{buildroot}%{_bindir}
+#ln -s consolehelper %{buildroot}%{_bindir}/%{name}
 
 mkdir %{buildroot}/etc/%{name} -p
 cp %{SOURCE1} %{buildroot}/etc/%{name}/grub.cfg
