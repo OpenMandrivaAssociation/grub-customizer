@@ -8,7 +8,6 @@ Url:		https://launchpad.net/grub-customizer
 Source0:	https://launchpad.net/grub-customizer/5.2/%{version}/+download/grub-customizer_%{version}.tar.gz
 Source1:	%{name}-grub.cfg
 Source2:	%{name}-pamd
-Patch0:		grub-customizer-sbin.patch
 Patch1:		grub-customizer-3.0.4-russian_desktopfile.patch
 BuildRequires:	cmake
 BuildRequires:	gettext
@@ -40,7 +39,6 @@ dynamical behavior of grub.
 
 %prep
 %setup -q
-%patch0 -p2
 %patch1 -p1
 
 %build
